@@ -42,15 +42,22 @@ public class UserServiceTest {
         request.setPassword("Password123");
         request.setName("Test User");
 
+        User savedUser = new User();
+        savedUser.setEmail(request.getEmail());
+        savedUser.setPassword("encodedPassword");
+        savedUser.setToken("jwtToken");
+
         when(userRepository.existsByEmail(anyString())).thenReturn(false);
         when(passwordEncoder.encode(anyString())).thenReturn("encodedPassword");
         when(jwtService.generateToken(anyString())).thenReturn("jwtToken");
+        when(userRepository.save(any(User.class))).thenReturn(savedUser);
 
         User user = userService.registerUser(request);
 
         assertNotNull(user);
         assertEquals("encodedPassword", user.getPassword());
         assertEquals("jwtToken", user.getToken());
+        assertEquals("test@example.com", user.getEmail());
     }
 
     @Test
@@ -62,6 +69,6 @@ public class UserServiceTest {
 
         RuntimeException exception = assertThrows(RuntimeException.class, () -> userService.registerUser(request));
 
-        assertEquals("Email already registered", exception.getMessage());
+        assertEquals("The email is already registered.", exception.getMessage());
     }
 }
