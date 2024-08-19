@@ -11,6 +11,9 @@ Este proyecto es una API construida en Java utilizando Spring Boot. La API permi
 - **Postman**: Para probar la API de manera manual.
 - **Git**: Para gestionar el código fuente.
 
+## Diagrama de la solución
+![Diagrama Prueba.png](..%2F..%2F..%2FDownloads%2FDiagrama%20Prueba.png)
+
 ## Configuración del Proyecto
 
 ### Clonar el Repositorio
