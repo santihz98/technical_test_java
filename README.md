@@ -12,7 +12,8 @@ Este proyecto es una API construida en Java utilizando Spring Boot. La API permi
 - **Git**: Para gestionar el código fuente.
 
 ## Diagrama de la solución
-![Diagrama Prueba.png](..%2F..%2F..%2FDownloads%2FDiagrama%20Prueba.png)
+![Diagrama Prueba](https://github.com/user-attachments/assets/817caf86-ee33-4bc0-abfb-6ce67ddaa645)
+
 
 ## Configuración del Proyecto
 
