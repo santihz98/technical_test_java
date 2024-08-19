@@ -9,7 +9,7 @@ import java.util.List;
 
 public class UserRegistrationRequest {
 
-    @NotEmpty(message = "Name is required")
+    @NotEmpty(message = "El nombre es requerido")
     private String name;
 
     @Email(message = "Ingresa un correo valido (aaaaaaa@dominio.cl)")

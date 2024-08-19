@@ -23,7 +23,7 @@ public class UserService {
 
     public User registerUser(UserRegistrationRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("The email is already registered.");
+            throw new RuntimeException("El correo ya esta registrado");
         }
 
         User user = new User();
