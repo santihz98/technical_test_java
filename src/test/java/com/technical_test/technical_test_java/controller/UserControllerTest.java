@@ -1,6 +1,7 @@
 package com.technical_test.technical_test_java.controller;
 
 import com.technical_test.technical_test_java.dto.UserRegistrationRequest;
+import com.technical_test.technical_test_java.exception.UserAlreadyExistsException;
 import com.technical_test.technical_test_java.entity.User;
 import com.technical_test.technical_test_java.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
@@ -52,12 +53,10 @@ public class UserControllerTest {
         UserRegistrationRequest request = new UserRegistrationRequest();
         request.setEmail("test@example.com");
 
-        when(userService.registerUser(any(UserRegistrationRequest.class))).thenThrow(new RuntimeException("Email already registered"));
+        when(userService.registerUser(request)).thenThrow(new UserAlreadyExistsException("Email already registered"));
 
-        ResponseEntity<?> result = userController.registerUser(request);
-
-        assertNotNull(result);
-        assertEquals(HttpStatus.BAD_REQUEST, result.getStatusCode());
-        assertEquals("Email already registered", result.getBody());
+        assertThrows(UserAlreadyExistsException.class, () -> {
+            userController.registerUser(request);
+        });
     }
 }

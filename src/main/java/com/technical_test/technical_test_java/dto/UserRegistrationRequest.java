@@ -12,12 +12,12 @@ public class UserRegistrationRequest {
     @NotEmpty(message = "Name is required")
     private String name;
 
-    @Email(message = "Email should be valid")
-    @NotEmpty(message = "Email is required")
+    @Email(message = "Ingresa un correo valido (aaaaaaa@dominio.cl)")
+    @NotEmpty(message = "El correo es requerido")
     private String email;
 
-    @NotEmpty(message = "Password is required")
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$", message = "Password must contain at least one digit, one lowercase, one uppercase letter and be at least 6 characters long")
+    @NotEmpty(message = "La contraseña es requerida")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$", message = "La contraseña debe contener al menos un dígito, una minúscula, una mayúscula y tener al menos 6 caracteres.")
     private String password;
 
     private List<Phone> phones;
